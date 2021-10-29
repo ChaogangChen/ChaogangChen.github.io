@@ -22,19 +22,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="不积跬步无以至千里">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://example.com/tags/index.html">
+  <meta name="description" content="LeetCode刷题日记 有效括号碰到了需要使用unoredered_map的一道题目：20. 有效的括号 - 力扣（LeetCode） (leetcode-cn.com) 知识点有：  unoredered_map 初始化可以用下面这样大括号的形式  stack类型栈可以使用empty()命令判断是否为空，使用top()函数取最上面的元素，使用pop()执行出栈操作，使用push()执行入栈操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode刷题日记 删除无效括号，两数之和">
+<meta property="og:url" content="http://example.com/2021/10/26/LeetCode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%20%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/index.html">
 <meta property="og:site_name" content="Chaogang的博客小站">
-<meta property="og:description" content="不积跬步无以至千里">
+<meta property="og:description" content="LeetCode刷题日记 有效括号碰到了需要使用unoredered_map的一道题目：20. 有效的括号 - 力扣（LeetCode） (leetcode-cn.com) 知识点有：  unoredered_map 初始化可以用下面这样大括号的形式  stack类型栈可以使用empty()命令判断是否为空，使用top()函数取最上面的元素，使用pop()执行出栈操作，使用push()执行入栈操作">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-02-10T14:07:08.000Z">
-<meta property="article:modified_time" content="2021-10-26T04:59:40.833Z">
+<meta property="article:published_time" content="2021-10-26T07:46:26.000Z">
+<meta property="article:modified_time" content="2021-10-29T12:25:07.631Z">
 <meta property="article:author" content="Chaogang">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/tags/">
+<link rel="canonical" href="http://example.com/2021/10/26/LeetCode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%20%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">
 
 
 <script id="page-configurations">
@@ -42,13 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签 | Chaogang的博客小站
-</title>
+  <title>LeetCode刷题日记 删除无效括号，两数之和 | Chaogang的博客小站</title>
   
 
 
@@ -165,51 +166,131 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/26/LeetCode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%20%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Chaogang">
+      <meta itemprop="description" content="不积跬步无以至千里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaogang的博客小站">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LeetCode刷题日记 删除无效括号，两数之和
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">标签
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-<div class="post-meta">
+              <time title="创建时间：2021-10-26 15:46:26" itemprop="dateCreated datePublished" datetime="2021-10-26T15:46:26+08:00">2021-10-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-29 20:25:07" itemprop="dateModified" datetime="2021-10-29T20:25:07+08:00">2021-10-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="LeetCode刷题日记-有效括号"><a href="#LeetCode刷题日记-有效括号" class="headerlink" title="LeetCode刷题日记 有效括号"></a>LeetCode刷题日记 有效括号</h1><p>碰到了需要使用unoredered_map的一道题目：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-parentheses/">20. 有效的括号 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<p>知识点有：</p>
+<ul>
+<li><p>unoredered_map 初始化可以用下面这样大括号的形式</p>
+</li>
+<li><p>stack类型栈可以使用<code>empty()</code>命令判断是否为空，使用<code>top()</code>函数取最上面的元素，使用<code>pop()</code>执行出栈操作，使用<code>push()</code>执行入栈操作。</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<p>具体的题解如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="keyword">char</span>,<span class="keyword">char</span>&gt; map = &#123;</span><br><span class="line">            &#123;<span class="string">&#x27;)&#x27;</span>,<span class="string">&#x27;(&#x27;</span>&#125;,</span><br><span class="line">            &#123;<span class="string">&#x27;]&#x27;</span>,<span class="string">&#x27;[&#x27;</span>&#125;,</span><br><span class="line">            &#123;<span class="string">&#x27;&#125;&#x27;</span>,<span class="string">&#x27;&#123;&#x27;</span>&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        stack&lt;<span class="keyword">char</span>&gt; stk;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c:s)&#123;</span><br><span class="line">            <span class="keyword">if</span> (map.<span class="built_in">count</span>(c))&#123;</span><br><span class="line">                <span class="keyword">if</span> ( stk.<span class="built_in">empty</span>() || stk.<span class="built_in">top</span>()!= map[c])&#123; <span class="comment">//注意这里两个判断之间的顺序，必须把判空放在前面，要不然会报错</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                stk.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stk.<span class="built_in">empty</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C++</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/26/LeetCode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%20%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7%EF%BC%8C%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/" rel="prev" title="LeetCode刷题日记 有效括号，合并两个有序链表，最大子序和">
+      <i class="fa fa-chevron-left"></i> LeetCode刷题日记 有效括号，合并两个有序链表，最大子序和
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/26/LeetCode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%20%E5%88%A0%E9%99%A4%E6%97%A0%E6%95%88%E6%8B%AC%E5%8F%B7%EF%BC%8C%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" rel="next" title="LeetCode刷题日记 删除无效括号，两数之和">
+      LeetCode刷题日记 删除无效括号，两数之和 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 3 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/C/" style="font-size: 30px; color: #111">C++</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 12px; color: #ccc">博客</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 30px; color: #111">算法</a>
-            </div>
-          </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
@@ -260,6 +341,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LeetCode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7"><span class="nav-number">1.</span> <span class="nav-text">LeetCode刷题日记 有效括号</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
