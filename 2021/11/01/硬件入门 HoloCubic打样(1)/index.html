@@ -22,21 +22,30 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="LeetCode刷题日记 有效括号碰到了需要使用unoredered_map的一道题目：20. 有效的括号 - 力扣（LeetCode） (leetcode-cn.com) 知识点有：  unoredered_map 初始化可以用下面这样大括号的形式  stack类型栈可以使用empty()命令判断是否为空，使用top()函数取最上面的元素，使用pop()执行出栈操作，使用push()执行入栈操作">
+  <meta name="description" content="title: 硬件入门 HoloCubic打样(1)date: 2021-11-01 14:23:26categories:tags: [硬件,HoloCubic]  HoloCubic打样(1)——导出Gerber文件 原项目地址：peng-zhihui&#x2F;HoloCubic: 带网络功能的伪全息透明显示桌面站 (github.com) 视频地址：【自制】如何制作一个赛博朋克风格的 百大UP奖杯">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode刷题日记 删除无效括号，两数之和">
-<meta property="og:url" content="http://example.com/2021/10/26/LeetCode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%20%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/index.html">
+<meta property="og:title" content="Chaogang的博客小站">
+<meta property="og:url" content="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/index.html">
 <meta property="og:site_name" content="Chaogang的博客小站">
-<meta property="og:description" content="LeetCode刷题日记 有效括号碰到了需要使用unoredered_map的一道题目：20. 有效的括号 - 力扣（LeetCode） (leetcode-cn.com) 知识点有：  unoredered_map 初始化可以用下面这样大括号的形式  stack类型栈可以使用empty()命令判断是否为空，使用top()函数取最上面的元素，使用pop()执行出栈操作，使用push()执行入栈操作">
+<meta property="og:description" content="title: 硬件入门 HoloCubic打样(1)date: 2021-11-01 14:23:26categories:tags: [硬件,HoloCubic]  HoloCubic打样(1)——导出Gerber文件 原项目地址：peng-zhihui&#x2F;HoloCubic: 带网络功能的伪全息透明显示桌面站 (github.com) 视频地址：【自制】如何制作一个赛博朋克风格的 百大UP奖杯">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-26T07:46:26.000Z">
-<meta property="article:modified_time" content="2021-10-29T12:25:07.631Z">
+<meta property="og:image" content="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/image-20211101145147040.png">
+<meta property="og:image" content="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/image-20211101150603501.png">
+<meta property="og:image" content="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/image-20211101151209663.png">
+<meta property="og:image" content="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/image-20211101151744768.png">
+<meta property="og:image" content="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/image-20211101151801701.png">
+<meta property="og:image" content="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/image-20211101151825520.png">
+<meta property="og:image" content="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/image-20211101151837045.png">
+<meta property="og:image" content="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/image-20211101151846792.png">
+<meta property="og:image" content="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/image-20211101152615686.png">
+<meta property="og:image" content="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/image-20211101152457057.png">
+<meta property="article:published_time" content="2021-11-01T06:23:41.289Z">
+<meta property="article:modified_time" content="2021-11-01T07:29:16.726Z">
 <meta property="article:author" content="Chaogang">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/image-20211101145147040.png">
 
-<link rel="canonical" href="http://example.com/2021/10/26/LeetCode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%20%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">
+<link rel="canonical" href="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/">
 
 
 <script id="page-configurations">
@@ -49,7 +58,7 @@
   };
 </script>
 
-  <title>LeetCode刷题日记 删除无效括号，两数之和 | Chaogang的博客小站</title>
+  <title> | Chaogang的博客小站</title>
   
 
 
@@ -174,7 +183,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/26/LeetCode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%20%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%20HoloCubic%E6%89%93%E6%A0%B7(1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -187,7 +196,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LeetCode刷题日记 删除无效括号，两数之和
+          
         </h1>
 
         <div class="post-meta">
@@ -196,24 +205,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-10-26 15:46:26" itemprop="dateCreated datePublished" datetime="2021-10-26T15:46:26+08:00">2021-10-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-29 20:25:07" itemprop="dateModified" datetime="2021-10-29T20:25:07+08:00">2021-10-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
+              <time title="创建时间：2021-11-01 14:23:41 / 修改时间：15:29:16" itemprop="dateCreated datePublished" datetime="2021-11-01T14:23:41+08:00">2021-11-01</time>
             </span>
 
           
@@ -234,19 +228,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="LeetCode刷题日记-有效括号"><a href="#LeetCode刷题日记-有效括号" class="headerlink" title="LeetCode刷题日记 有效括号"></a>LeetCode刷题日记 有效括号</h1><p>碰到了需要使用unoredered_map的一道题目：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-parentheses/">20. 有效的括号 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
-<p>知识点有：</p>
-<ul>
-<li><p>unoredered_map 初始化可以用下面这样大括号的形式</p>
-</li>
-<li><p>stack类型栈可以使用<code>empty()</code>命令判断是否为空，使用<code>top()</code>函数取最上面的元素，使用<code>pop()</code>执行出栈操作，使用<code>push()</code>执行入栈操作。</p>
-</li>
-</ul>
+        <p>title: 硬件入门 HoloCubic打样(1)<br>date: 2021-11-01 14:23:26<br>categories:<br>tags: [硬件,HoloCubic] </p>
+<h1 id="HoloCubic打样-1-——导出Gerber文件"><a href="#HoloCubic打样-1-——导出Gerber文件" class="headerlink" title="HoloCubic打样(1)——导出Gerber文件"></a>HoloCubic打样(1)——导出Gerber文件</h1><blockquote>
+<p>原项目地址：<a target="_blank" rel="noopener" href="https://github.com/peng-zhihui/HoloCubic">peng-zhihui/HoloCubic: 带网络功能的伪全息透明显示桌面站 (github.com)</a></p>
+<p>视频地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1VA411p7MD?spm_id_from=333.999.0.0">【自制】如何制作一个赛博朋克风格的 百大UP奖杯 【硬核】_哔哩哔哩_bilibili</a></p>
+</blockquote>
+<p>纪念一下自己纯粹出于兴趣做的这个小项目，今天走出了万里长征第一步，把稚晖君设计出来的板子成功送加工啦！</p>
+<p>这里记录一下自己的学习过程。</p>
 <span id="more"></span>
 
-<p>具体的题解如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="keyword">char</span>,<span class="keyword">char</span>&gt; map = &#123;</span><br><span class="line">            &#123;<span class="string">&#x27;)&#x27;</span>,<span class="string">&#x27;(&#x27;</span>&#125;,</span><br><span class="line">            &#123;<span class="string">&#x27;]&#x27;</span>,<span class="string">&#x27;[&#x27;</span>&#125;,</span><br><span class="line">            &#123;<span class="string">&#x27;&#125;&#x27;</span>,<span class="string">&#x27;&#123;&#x27;</span>&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        stack&lt;<span class="keyword">char</span>&gt; stk;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c:s)&#123;</span><br><span class="line">            <span class="keyword">if</span> (map.<span class="built_in">count</span>(c))&#123;</span><br><span class="line">                <span class="keyword">if</span> ( stk.<span class="built_in">empty</span>() || stk.<span class="built_in">top</span>()!= map[c])&#123; <span class="comment">//注意这里两个判断之间的顺序，必须把判空放在前面，要不然会报错</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                stk.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stk.<span class="built_in">empty</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+<h2 id="打开并加载PcbDoc文件"><a href="#打开并加载PcbDoc文件" class="headerlink" title="打开并加载PcbDoc文件"></a>打开并加载PcbDoc文件</h2><p>因为稚晖君的电路板是使用一款名为<code>Altium Designer</code>的软件设计出来的，所以首先就应该下载这款软件。第一步并不难，只要稍微搜索一下资源，然后按照网上的要求，下载安装这个软件就好了。不同的软件版本会有不一样的界面，不过不是很影响实际的体验，我安装的<code>Altium Designer</code>是<code>21.0.9</code>版本的。</p>
+<p>由于软件本体并不是一个免费文件，所以需要在安装软件的时候稍微费一番心思，安装软件的过程这里就不讲解了，嘻嘻。</p>
+<p>软件安装好之后，双击<code>Hardware</code>文件夹中的<code>MainBoard.PcbDoc</code>文件就可以看到电路板文件了。下面就是打开之后的效果。</p>
+<p><img src="image-20211101145147040.png" alt="image-20211101145147040"></p>
+<h2 id="如何把pcb文件交给店家加工"><a href="#如何把pcb文件交给店家加工" class="headerlink" title="如何把pcb文件交给店家加工"></a>如何把pcb文件交给店家加工</h2><p>如果去找店家加工电路板，店家一般会要求提供电路板的<code>Gerber文件</code>，新手第一次听说Gerber文件的时候都会懵逼（没错我就懵了）。</p>
+<p>这里贴一下<code>Gerber文件</code>的简单介绍：</p>
+<blockquote>
+<p><strong>Gerber</strong>是一种二维矢量图像文件格式。它是印刷线路板行业软件中用于描述印刷线路板图像的标准格式，例如：线路层，阻焊层，字符层，钻孔层等。</p>
+</blockquote>
+<p>Gerber文件就像下面图片里显示的一样，会包含很多小文件。</p>
+<p><img src="image-20211101150603501.png" alt="image-20211101150603501"></p>
+<p>使用Altium Designer自带的功能就可以完成Gerber文件的导出，我参考这篇文章的方法，导出了Gerber文件：<a target="_blank" rel="noopener" href="https://blog.csdn.net/kezunhb/article/details/90050887">Altium Designer如何生成Gerber文件_睿思派克-CSDN博客_ad生成gerber文件</a></p>
+<p>emmm，再贴一遍自己操作的图片🤣</p>
+<h3 id="STEP-1-打开-file-Fabrication-Outputs-Gerber-Files"><a href="#STEP-1-打开-file-Fabrication-Outputs-Gerber-Files" class="headerlink" title="STEP 1 打开 file - Fabrication Outputs - Gerber Files"></a>STEP 1 打开 file - Fabrication Outputs - Gerber Files</h3><p><img src="image-20211101151209663.png" alt="image-20211101151209663"></p>
+<h3 id="STEP-2-——-完成相关设置"><a href="#STEP-2-——-完成相关设置" class="headerlink" title="STEP 2 —— 完成相关设置"></a>STEP 2 —— 完成相关设置</h3><p>这个地方很简单，就不说太多了。</p>
+<ul>
+<li><p>在“General”(通用)选项 里面，“Units”（单位）选择“Inches”（英寸），Format（格式）选择2:5 ，这个尺寸精度比较高。</p>
+<p><img src="image-20211101151744768.png" alt="image-20211101151744768"></p>
+</li>
+<li><p>在“Layers”（层）里面，选中“Include unconnected mid-layer pads”（包括未连接的中间层焊盘），在“Plot Layers”（绘制层）下拉菜单里面选择“Used On”（选择使用的），要检查一下，不要丢掉层。在“Mirror layers”（镜像层） 下拉菜单里面选择 “All Off”（全部去掉），右边的机械层都不要选。<img src="image-20211101151801701.png" alt="image-20211101151801701"></p>
+</li>
+<li><p>在 “Drill Drawing”（钻孔图层）里面，设置分孔图层参数，选择你要导出的层对。一般选择“Plot all used layer pairs”（输出所有使用的钻孔对），“Mirror plots”（镜像输出）不用选中。Drill Drawing plots（钻孔图） 和 Drill Guide Plots（钻孔导向图）做同样的选择。<img src="image-20211101151825520.png" alt="image-20211101151825520"></p>
+</li>
+<li><p> 在 “Apertures”（光圈）里面，打勾选中“Embeded apertures(RS274X) ”（嵌入的孔径(RS274)），内含D码格式。<img src="image-20211101151837045.png" alt="image-20211101151837045"></p>
+</li>
+<li><p>在“Advanced”（高级）里面，在“Leading/Trailing Zeroes” （首位/末尾的零）区域，选中“Suppress leading zeroes”（去掉首位的零）。默认情况下设计是圆弧的线转出去仍然上是圆弧，如将Other栏下的“Use software arcs”（使用软件弧）打勾，则设计的圆弧会用线段来代替。<img src="image-20211101151846792.png" alt="image-20211101151846792"></p>
+</li>
+<li><p>在PCB文件环境中，左键点击 File -&gt; Fabrication Outputs -&gt; NC Drill Files，进入NC Drill Setup 界面，Units选择“Inches”，Format选择2:5 。 在“Leading/Trailing Zeroes” 区域，选中“Suppress trailing zeroes”，和之前Gerber Setup 的“Advanced”里面要保持一致，其他默认选项不变。<img src="image-20211101152615686.png" alt="image-20211101152615686"></p>
+</li>
+<li><p>Gerber文件会被输出到PcbDoc同文件夹下的Output文件夹里。把这个文件夹打包发给淘宝客服就可以了。<img src="image-20211101152457057.png" alt="image-20211101152457057"></p>
+</li>
+</ul>
 
     </div>
 
@@ -265,10 +287,6 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/C/" rel="tag"># C++</a>
-              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
-          </div>
 
         
 
@@ -276,13 +294,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/10/26/LeetCode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%20%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7%EF%BC%8C%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/" rel="prev" title="LeetCode刷题日记 有效括号，合并两个有序链表，最大子序和">
-      <i class="fa fa-chevron-left"></i> LeetCode刷题日记 有效括号，合并两个有序链表，最大子序和
+    <a href="/2021/10/26/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="prev" title="搭建个人博客">
+      <i class="fa fa-chevron-left"></i> 搭建个人博客
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/10/26/LeetCode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%20%E5%88%A0%E9%99%A4%E6%97%A0%E6%95%88%E6%8B%AC%E5%8F%B7%EF%BC%8C%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" rel="next" title="LeetCode刷题日记 删除无效括号，两数之和">
-      LeetCode刷题日记 删除无效括号，两数之和 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -341,7 +356,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LeetCode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7"><span class="nav-number">1.</span> <span class="nav-text">LeetCode刷题日记 有效括号</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HoloCubic%E6%89%93%E6%A0%B7-1-%E2%80%94%E2%80%94%E5%AF%BC%E5%87%BAGerber%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">HoloCubic打样(1)——导出Gerber文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%B9%B6%E5%8A%A0%E8%BD%BDPcbDoc%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">打开并加载PcbDoc文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%8A%8Apcb%E6%96%87%E4%BB%B6%E4%BA%A4%E7%BB%99%E5%BA%97%E5%AE%B6%E5%8A%A0%E5%B7%A5"><span class="nav-number">1.2.</span> <span class="nav-text">如何把pcb文件交给店家加工</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#STEP-1-%E6%89%93%E5%BC%80-file-Fabrication-Outputs-Gerber-Files"><span class="nav-number">1.2.1.</span> <span class="nav-text">STEP 1 打开 file - Fabrication Outputs - Gerber Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#STEP-2-%E2%80%94%E2%80%94-%E5%AE%8C%E6%88%90%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.2.2.</span> <span class="nav-text">STEP 2 —— 完成相关设置</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
